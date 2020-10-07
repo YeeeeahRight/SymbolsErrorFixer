@@ -12,6 +12,7 @@ import java.io.IOException;
 public class FileDataAcquirerTest {
     private static final String INVALID_PATH = "invalid.txt";
     private static final String VALID_PATH = "data.txt";
+    private FileWriter fileWriter;
     private DataAcquirer fileAcquirer;
 
     @Test(expected = TextFileNotFoundException.class)
@@ -23,7 +24,7 @@ public class FileDataAcquirerTest {
     public void testGetTextShouldGetTextWhenFileIsFilled() throws IOException, TextFileNotFoundException, InputStreamException {
         //given
         String text = "робот роскошь";
-        FileWriter fileWriter = new FileWriter(VALID_PATH);
+        fileWriter = new FileWriter(VALID_PATH);
         fileWriter.write(text);
         fileWriter.close();
         fileAcquirer = new FileDataAcquirer(VALID_PATH);
@@ -36,7 +37,7 @@ public class FileDataAcquirerTest {
     @Test
     public void testGetTextShouldGetNullWhenFileIsEmpty() throws IOException, TextFileNotFoundException, InputStreamException {
         //given
-        FileWriter fileWriter = new FileWriter(VALID_PATH);
+        fileWriter = new FileWriter(VALID_PATH);
         fileWriter.close();
         fileAcquirer = new FileDataAcquirer(VALID_PATH);
         //when
