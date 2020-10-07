@@ -7,7 +7,7 @@ import com.fixer.exceptions.InputStreamException;
 import com.fixer.exceptions.OutputStreamException;
 import com.fixer.exceptions.TextFileNotFoundException;
 import com.fixer.logic.factory.TextFixerFactory;
-import com.fixer.logic.factory.impl.StringTextFixerFactory;
+import com.fixer.logic.factory.impl.RegexTextFixerFactory;
 import com.fixer.logic.fixer.TextFixer;
 import com.fixer.view.factory.ResultPrinterFactory;
 import com.fixer.view.factory.impl.ConsoleResultPrinterFactory;
@@ -19,7 +19,7 @@ public class Main {
         DataAcquirer acquirer = acquirerCreator.createAcquirer();
         String text = acquirer.getText();
 
-        TextFixerFactory fixerCreator = new StringTextFixerFactory();
+        TextFixerFactory fixerCreator = new RegexTextFixerFactory();
         TextFixer fixer = fixerCreator.createFixer();
         text = fixer.fix(text);
 

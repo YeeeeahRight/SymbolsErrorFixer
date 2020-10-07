@@ -1,6 +1,7 @@
 package com.fixer.logic.fixer;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 public abstract class AbstractTextFixer {
     private TextFixer fixer;
@@ -9,6 +10,7 @@ public abstract class AbstractTextFixer {
         this.fixer = fixer;
     }
 
+    @Test
     public void testFixShouldReturnSourceStringWhenSourceStringIsEmpty() {
         //given
         String source = "";
@@ -18,6 +20,7 @@ public abstract class AbstractTextFixer {
         Assert.assertEquals(source, result);
     }
 
+    @Test
     public void testFixShouldReturnSourceStringWhenSourceStringIsCorrect() {
         //given
         String source = "робот роскошь";
@@ -27,6 +30,7 @@ public abstract class AbstractTextFixer {
         Assert.assertEquals(source, result);
     }
 
+    @Test
     public void testFixShouldFixWhenSourceStringIsIncorrect() {
         //given
         String source = "работ";
@@ -36,6 +40,7 @@ public abstract class AbstractTextFixer {
         Assert.assertEquals("робот", result);
     }
 
+    @Test
     public void testFixShouldFixWhenSeveralWordsInSourceString() {
         //given
         String source = "работ раскошь";
@@ -45,6 +50,7 @@ public abstract class AbstractTextFixer {
         Assert.assertEquals("робот роскошь", result);
     }
 
+    @Test
     public void testFixShouldFixWhenSourceStringIsReplaceable() {
         //given
         String source = "ра";
@@ -54,6 +60,7 @@ public abstract class AbstractTextFixer {
         Assert.assertEquals("ро", result);
     }
 
+    @Test
     public void testFixShouldFixWhenSourceStringIsSeveralReplaceable() {
         //given
         String source = "рарарара ра ра арарар";
