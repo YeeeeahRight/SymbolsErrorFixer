@@ -22,7 +22,6 @@ public class FileResultPrinter implements ResultPrinter {
         try {
             fileWriter = new BufferedWriter(new FileWriter(filePath));
             fileWriter.write(result);
-            fileWriter.flush();
         } catch (IOException e) {
             throw new OutputStreamException(OUTPUT_ERROR_MESSAGE);
         } finally {
